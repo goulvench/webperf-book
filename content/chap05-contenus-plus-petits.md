@@ -376,7 +376,7 @@ lieu de gérer tout le contenu en mémoire (4 Ko par défaut). Il est
 aussi possible (mais moins recommandé) de l'activer au besoin 
 lors de l'exécution à l'aide de `ob_start("ob_gzhandler")`. 
 
-~~~~~~~ {.online .phpconf .ini}
+~~~~~~~ {.oneline .phpconf .ini}
 zlib.output_compression = On 
 ~~~~~~~
 
@@ -1319,21 +1319,21 @@ navigateur d'avoir à télécharger une page d'erreur inutilement.
 À retenir
 ---------
 
-* Activer la compression HTTP des fichiers CSS et JavaScript 
+* Activer la compression HTTP des fichiers CSS et JavaScript ;
 
-* Optimiser les images avec pngcrush ou équivalent 
+* Optimiser les images avec pngcrush ou équivalent ;
 
-* Faire des compromis de qualité pour diminuer le poids des images 
+* Faire des compromis de qualité pour diminuer le poids des images ;
 
 * Choisir le bon format pour chaque image (jpeg ou png, suivant 
-  les cas) 
+  les cas) ;
 
 * Minimiser les JavaScript et CSS à l'aide de YUI Compressor 
-  ou équivalent 
+  ou équivalent ;
 
-* Faire des pages d'erreur petites (< 5 Ko) et sans redirection 
+* Faire des pages d'erreur petites (< 5 Ko) et sans redirection ;
 
 * Servir les ressources statiques via un domaine séparé, sans 
-  cookies 
+  cookies ;
 
-* S'assurer de la présence d'une icône à l'adresse /favicon.ico 
+* S'assurer de la présence d'une icône à l'adresse /favicon.ico. 

@@ -612,7 +612,7 @@ que l'icône de dix pixels aux coordonnées 50,60 par rapport au
 coin en haut à gauche (on donne l'adresse du sprite, puis les coins 
 en haut à gauche et en bas à droite) : 
 
-~~~~~~~ {.css .online}
+~~~~~~~ {.css .oneline}
 background-image:-moz-image-rect('sprite.png',50px,60px,60px,70px); 
 ~~~~~~~
 
@@ -737,14 +737,13 @@ Par exemple, le mot « cloud » se retrouve remplacé par un dessin de nuage.
 Si nous devions adapter un tel dispositif pour donner des coordonnées de contact, et si nous
 laissons le texte des icônes dans le code HTML, nous pourrions avoir :
 
-```
+~~~~~~~ {.html}
  <address>
   <span class="icon">Adresse</span> 1 boulevard Prestigieux<br />
   <span class="icon">Téléphone</span> 01-23-45-67-89<br />
   <span class="icon">Courriel</span> email@example.com<br />
  </address>
-
-```
+~~~~~~~
 
 Néanmoins, cet exemple n'est pas idéal, [l'auteur du hack préconise](http://kudakurage.hatenadiary.com/entry/20120720/1342749116) 
 de mettre le texte des icônes en propriété CSS `content`.
@@ -848,7 +847,7 @@ de style, etc.
 
 Le prototype de ces liens est le suivant : 
 
-~~~~~~~ {.online}
+~~~~~~~ {.oneline}
 data:[<mediatype>][;base64],<data> 
 ~~~~~~~
 

@@ -4,7 +4,7 @@ Travailler avec les caches HTTP
 Ce premier chapitre technique aborde les caches HTTP. Notre objectif va
 être de réduire, presque à zéro, le temps de chargement des composants
 d'une page web. En fait nous allons faire en sorte que le navigateur
-n'ait presque rien à télécharger sur le réseau. Comme chacun peut
+n'ait presque rien à télécharger depuis le réseau. Comme chacun peut
 l'imaginer le gain pour le navigateur, et donc pour le visiteur, est
 impressionnant.
 
@@ -17,7 +17,7 @@ Il demande plusieurs fois l'affichage d'une même ressource, d'une même
 icône, d'une même feuille de style.
 
 Sur une page web, le trafic réseau représente l'essentiel du temps
-d'attente et de chargement. Couper les temps d'attente réseaux et vous
+d'attente et de chargement. Couper les temps d'attente réseau et vous
 aurez une réactivité quasi instantanée.
 
 Pour cela le navigateur stocke certaines ressources dans un cache local
@@ -75,7 +75,7 @@ permettent d'économiser plus de 90 % de la bande passante lors du second
 accès. Ils représentent des sites de contenu, des sites vitrine, des
 sites de commerce, des sites orientés vidéo. Très peu de catégories sont
 exclues et même la page d'accueil de Google qui n'a pour ainsi dire
-aucun composant complexe arrive à diviser par 6 se bande passante.
+aucun composant complexe arrive à diviser par 6 sa bande passante.
 
 ![Influence du cache sur le poids des pages et le nombre de requêtes HTTP](img/chap03-influence-du-cache-sur-le-poids-des-pages-et-le-nombre-de-requetes-http.png)
 
@@ -102,7 +102,7 @@ site. Au fur et à mesure de leur surf le cache se remplit, et certains
 anciens éléments sont effacés pour laisser de la place, peut-être les
 vôtres. Le résultat c'est qu'à la prochaine visite sur votre site, on se
 retrouve dans la situation d'un cache vide : le navigateur doit
-retélécharger tous vos composants.
+re-télécharger tous vos composants.
 
 Ensuite, certaines politiques de sécurité d'entreprise ou de gestion de
 la vie privée vident automatiquement et régulièrement le cache de
@@ -191,7 +191,7 @@ requête conditionnelle. Il s'agit pour le serveur d'informer le
 navigateur sur la date de dernière mise à jour du contenu. Dans les
 téléchargements suivants, le navigateur peut demander au serveur si la
 ressource a changé. Si ce n'est pas le cas, alors on évite de la
-retélécharger.
+re-télécharger.
 
 ### Détails HTTP
 
@@ -441,7 +441,7 @@ n'utilise qu'un seul serveur pour l'instant, ne vous en préoccupez pas.
 
 L'analyse d'un échantillon d'une trentaine de sites français ne dégage
 pas de consensus fort sur la questions des ETags. À peu près autant
-fonctionnent avec ETag que sans ETag. Tout au plus, on peut noter que
+fonctionnent avec ETag que sans. Tout au plus, on peut noter que
 ceux qui ont les meilleures performances, donc qui ont probablement le
 plus réfléchi à la question, ont plutôt tendance à les désactiver.
 
@@ -501,13 +501,13 @@ HTTP/1.1 200 OK
 Date: Sun, 02 Nov 2008 15:54:27 GMT
 Server: Apache/2.2.3 (CentOS)
 Last-Modified: Sun, 01 Feb 2009 18:44:18 GMT
-Expires: Sun, 01, Feb, 20010 18:44:18 GMT
+Expires: Sun, 01, Feb, 2010 18:44:18 GMT
 Cache-Control: max-age=31536000
 
 […]
 ~~~~~~~
 
-Jusqu'à l'expiration des contenus – ou si le visiteur renouvelle le
+Jusqu'à l'expiration des contenus – ou si le visiteur vide le
 cache de son navigateur – le navigateur ne fera plus aucune requête pour
 ces ressources. Cela implique aussi que si vous modifiez l'image ou le
 fichier concerné, les visiteurs qui l'ont déjà en cache ne verront pas
@@ -518,9 +518,9 @@ l'essentiel des sites web.
 
 Si le cache d'une ressource a expiré, le navigateur utilisera une
 requête conditionnelle plus classique pour revalider son contenu (et
-éventuellement ne pas avoir à le retélécharger). Il obtiendra alors une
+éventuellement ne pas avoir à le re-télécharger). Il obtiendra alors une
 nouvelle date d'expiration explicite, et éventuellement le nouveau
-contenu si la ressource a été mise à jour entre temps.
+contenu si la ressource a été mise à jour entre-temps.
 
 Si la directive `max-age` est présente en même temps que `must-revalidate`,
 alors le client peut utiliser le cache pendant le temps indiqué, mais il
@@ -576,7 +576,7 @@ préférable) ou à la date de dernière modification (pour des cas très
 spécifiques) :
 
 ~~~~~~~ {.apache}
-ExpiresActive On\
+ExpiresActive On
 ExpiresDefault "access plus 1 month"
 ExpiresByType text/html "access plus 1 month 15 days 2 hours"
 ExpiresByType image/gif "modification plus 5 hours 3 minutes"
@@ -597,7 +597,7 @@ header("Cache-Control: max-age=$expires") ;
 Pour des fichiers HTML avec une expiration courte, comme une page
 d'accueil, n'oubliez pas de gérer aussi les requêtes conditionnelles,
 afin de permettre au navigateur de revalider son contenu et obtenir une
-nouvelle expiration sans tout retélécharger.
+nouvelle expiration sans tout re-télécharger.
 
 Sur Lighttpd, les paramètres du modExpire sont similaires mais la syntaxe
 du fichier de configuration laisse plus de latitude pour cibler les
@@ -616,13 +616,13 @@ ressources en cache viennent de connexions sécurisées par HTTPS. Le
 navigateur impose d'avoir au moins établi un échange avec le serveur
 dans la page courante avant de réutiliser des données de ce serveur dans
 le cache. En pratique cela veut dire que le premier composant de chaque
-domaine accédé en HTTPS sera toujours retéléchargé et jamais pris à
-partir du cache, quelles que soient les entêtes que vous lui envoyez. Il
+domaine accédé en HTTPS sera toujours re-téléchargé et jamais pris dans 
+le cache, quelles que soient les entêtes que vous lui envoyez. Il
 en va de même pour Mozilla Firefox.
 
 En fait, on va même un peu plus loin puisque si vous demandez trois
 images sur un domaine HTTPS, même si ces dernières sont en cache, ce sont
-peut-être les trois qui seront retéléchargées. Internet Explorer
+peut-être les trois qui seront re-téléchargées. Internet Explorer
 télécharge la première, à dessein, mais risque de ne pas avoir encore la
 réponse avant de tenter d'afficher la seconde image. Au lieu d'attendre,
 il constate qu'il n'a toujours pas établi de connexion, et envoie une
@@ -655,7 +655,7 @@ d'utiliser une réécriture d'URL comme celle qui suit (exemple avec
 mod_rewrite et Apache) mais permet de garder un historique des
 versions :
 
-~~~~~~~ {.apache .online}
+~~~~~~~ {.apache .oneline}
 RewriteRule ^(.*)-\d\.\d(\.[a-z]{1,5})$  $1$2
 ~~~~~~~
 
@@ -717,7 +717,7 @@ Différencier les copies suivant les utilisateurs et les contextes
 -----------------------------------------------------------------
 
 Le bénéfice du cache HTTP est indéniable mais il pose d'autres
-problèmes : si plusieurs personnes passent pas le même proxy, elles ne
+problèmes : si plusieurs personnes passent par le même proxy, elles ne
 pourront pas accéder à des données personnalisées. De même, les méthodes
 vues jusqu'à présent empêchent la donnée de varier en fonction du
 contexte (personne identifiée ou non, présence d'un panier, langue du
@@ -741,7 +741,7 @@ en les séparant par des virgules.
 L'entête suivante permet de servir un cache différent suivant la langue
 et le navigateur :
 
-~~~~~~~ {.http .response .partial .online}
+~~~~~~~ {.http .response .partial .oneline}
 Vary: Accept-Language, User-Agent
 ~~~~~~~
 
@@ -751,7 +751,7 @@ que chaque client a sa propre page et ses propres contenus, sans pour
 autant s'empêcher de profiter du cache. Pour cela il suffit de rajouter
 le paramètre `private` à l'entête `Cache-Control`.
 
-~~~~~~~ {.http .response .partial .online}
+~~~~~~~ {.http .response .partial .oneline}
 Cache-Control: private, max-age=3600 
 ~~~~~~~
 
@@ -766,7 +766,7 @@ type GET sans erreur, sinon le serveur risque de ne pas déclencher
 certains traitements en provenance de formulaire (vu que le navigateur a
 utilisé le cache).
 
-~~~~~~~ {.http .response .partial .online}
+~~~~~~~ {.http .response .partial .oneline}
 Cache-Control: public, max-age=3600 
 ~~~~~~~
 
@@ -774,7 +774,7 @@ De manière générale, on choisit entre public et privé suivant que la
 ressource contient des données propres à l'utilisateur courant ou si
 elle peut être réutilisée par tout le monde. Dès que vous avez une
 authentification ou des préférences utilisateurs, c'est probablement un
-`Cache-Control:private` qu'il vous faut.
+`Cache-Control: private` qu'il vous faut.
 
 
 Cache applicatif HTML5
@@ -785,7 +785,7 @@ pour les applications hors-ligne. Il s'agit de pouvoir utiliser un site
 web une fois déconnecté, par exemple pour lire du contenu pré-téléchargé
 ou pour gérer des données comme des e-mails. Les images, illustrations,
 et composants doivent alors être sauvegardés par l'appareil pour être
-réutilisés sans être retéléchargés.
+réutilisés sans être re-téléchargés.
 
 Un fichier texte, nommé manifeste, liste les différentes ressources qui
 seront sauvegardées en cache suivant la syntaxe suivante : une première
@@ -802,7 +802,7 @@ CACHE MANIFEST
 
 Il suffit ensuite de servir ce fichier avec le type mime
 `text/cache-manifest` et d'en référencer l'adresse dans l'attribut
-manifest de la balise `<html>` du document principal :
+`manifest` de la balise `<html>` du document principal :
 
 ~~~~~~~ {.html}
 <!DOCTYPE HTML>
@@ -816,7 +816,7 @@ manifest de la balise `<html>` du document principal :
 
 À chaque accès, le navigateur télécharge le manifeste. S'il s'agit d'un
 nouveau manifeste ou si le contenu a changé toutes les ressources sont
-retéléchargées pour être mises à jour. Le cache applicatif HTML5 permet
+re-téléchargées pour être mises à jour. Le cache applicatif HTML5 permet
 en fait d'autres possibilités (liste blanche, fallback, API pour accéder
 aux différents événement dans le navigateur, etc.) mais cela dépasse le
 cadre de ce livre.
@@ -843,7 +843,7 @@ mise en cache, ils resteraient bloqués à leur ancienne valeur.
 Ainsi, afin de profiter au maximum du cache, on tente de séparer les
 composants statiques du reste de la page. En externalisant les feuilles
 de style et les JavaScript dans des fichiers externes, on permet que ces
-codes soient mis en cache, selon les méthodes expliquées plus avant,
+codes soient mis en cache, selon les méthodes expliquées plus tôt,
 quand bien même la page HTML elle-même ne le serait pas.
 
 Cette externalisation, où chaque déclaration JavaScript ou CSS est
@@ -879,7 +879,7 @@ Ainsi, même si votre page d’accueil n’a pas de commentaires, pourquoi ne
 pas charger les icônes et codes JavaScript qui sont utilisés dans les
 pages internes ? Les illustrations courantes, les JavaScripts et
 feuilles de styles sont de très bon candidats au préchargement. Les
-pages HTML elles-même offrent un ration utilité/risque un peu moins
+pages HTML elles-même offrent un ratio utilité/risque un peu moins
 intéressant.
 
 **Recommandation** : si votre page courante est très différente des
@@ -892,7 +892,7 @@ prétexte d’accélérer les suivantes. Pour cela les ressources à
 précharger sont initialisées en fin de document, après tout ce qui est
 utilisé sur le moment.
 
-Une formule assez simple pourrait être utilisée : on multiple le
+Une formule assez simple pourrait être utilisée : on multiplie le
 pourcentage d'utilisateurs qui auront besoin de la ressource dans leurs
 prochains accès par le surcoût que représente le téléchargement de cette
 ressource si elle n'est pas préchargée. D'un autre côté on multiplie le
@@ -927,7 +927,7 @@ dans HTML5 mais n’est pour l’instant implémentée que dans les
 navigateurs basés sur le moteur Gecko (dont Mozilla Firefox) et quelques
 versions du navigateur Blackberry.
 
-~~~~~~~ {.html .partial .online}
+~~~~~~~ {.html .partial .oneline}
 <link rel="prefetch" href="http://example.org/maressource">
 ~~~~~~~
 
@@ -945,7 +945,7 @@ avant-plan grâce à la propriété JavaScript
 `document.webkitVisibilityState` qui retournera « visible », « hidden » ou
 « prerender », suivant les cas.
 
-~~~~~~~ {.html .partial .online}
+~~~~~~~ {.html .partial .oneline}
 <link rel="prerender" href="http://example.org/maressource">
 ~~~~~~~
 
@@ -967,14 +967,14 @@ initialisées qu'après l’événement onload de la page courante.
 La plus simple de ces méthodes alternatives est d’utiliser des requêtes
 AJAX. Elles ont l’avantage d’être asynchrones et de ne pas avoir
 d’indicateur de chargement dans l’interface utilisateur. Un sablier ou
-un indicateur équivalent donnerait en effet un très mauvais ressenti de
+indicateur équivalent donnerait en effet un très mauvais ressenti de
 performance à l’utilisateur, même si le résultat objectif est
 intéressant.
 
 Il est aussi possible de charger des images en JavaScript avec `new
 Image()`, de charger une bibliothèque de code JavaScript avec un simple
 `<script>`, d'utiliser la balise `<object>`, ou même de charger des
-éléments dans une iframe cachées. Ces trois méthodes peuvent toutefois
+éléments dans une iframe cachée. Ces trois méthodes peuvent toutefois
 provoquer des indicateurs d’attente dans l’interface utilisateur, voire
 bloquer l’interface entièrement (pendant l’interprétation de la
 bibliothèque JavaScript par exemple).
@@ -988,7 +988,7 @@ l’activité réseau le permet. Il n’y a rien à faire, mais il est possible
 de demander explicitement le préchargement d’un nom de domaine avec la
 syntaxe suivante :
 
-~~~~~~~ {.html .partial .online}
+~~~~~~~ {.html .partial .oneline}
 <link rel="dns-prefetch" href="//example.org">
 ~~~~~~~
 
@@ -996,7 +996,7 @@ Par défaut ce préchargement n’est pas activé pour les liens sécurisé en
 HTTPS. Il est possible de les demander explicitement avec la balise méta
 suivante :
 
-~~~~~~~ {.html .partial .online}
+~~~~~~~ {.html .partial .oneline}
 <meta http-equiv="x-dns-prefetch-control" value="on">
 ~~~~~~
 
@@ -1006,7 +1006,7 @@ Inversement, la valeur off permet de désactiver les préchargements DNS
 Microsoft Internet Explorer 9 tente aussi de résoudre en avance les noms
 de machines dans les liens en préchargement :
 
-~~~~~~~ {.html .partial .online}
+~~~~~~~ {.html .partial .oneline}
 <link rel="dns-prefetch" href="http://example.org/index.html">
 ~~~~~~~
 
@@ -1124,7 +1124,7 @@ Les navigateurs et les serveurs proxy utilisent un système lié à l’URL
 de chaque ressource pour gérer les caches. Si une ressource change
 d’URL, alors c’est une nouvelle entrée dans le cache qui est utilisée.
 C’est d’ailleurs sur ce principe que nous nous reposons pour versionner
-les composants comment nous l’avons vu précédemment.
+les composants comme nous l’avons vu précédemment.
 
 Cela implique toutefois qu’une ressource ne doit être accessible que par
 une seule URL, sous peine de ne pas profiter au mieux du cache. Faites
@@ -1150,7 +1150,7 @@ et les versions.
 Par défaut, c’est à dire sans précision dans les entêtes `Cache-Control`
 ni `Expires`, le navigateur peut :
 
-* ne rien stocker et retélécharger la ressource au prochain accès (cas
+* ne rien stocker et re-télécharger la ressource au prochain accès (cas
   le plus probable si vous n’envoyez ni entête `ETag` ni entête
   `Last-Modified`) ;
 * stocker le contenu téléchargé et faire une revalidation avec une
@@ -1236,10 +1236,10 @@ Ainsi, la balise `<meta http-equiv=refresh>` ou l'entête HTTP Refresh
 lancent aussi la nouvelle page sans passer par le cache. Ce peut être
 une fonctionnalité intéressante à exploiter mais si vous souhaitez
 simplement charger une nouvelle page après quelques secondes (par
-exemple pour un interstitiel de publicité) il faut mieux employer un
-code JavaScript qui utilise le document.location. Pour des questions de
+exemple pour un interstitiel de publicité) il vaut mieux employer un
+code JavaScript qui utilise le `document.location`. Pour des questions de
 compatibilité rien ne vous empêche cependant d'utiliser les deux : le
-document.location en premier et la balise `<meta>` qui se déclenche une
+`document.location` en premier et la balise `<meta>` qui se déclenche une
 seconde plus tard pour les utilisateurs sans JavaScript.
 
 ### Autres comportements par défaut
@@ -1258,7 +1258,7 @@ d’être mise en cache.
 Le second groupe rassemble toutes les requêtes réalisées avec le verbe
 POST. Le protocole HTTP indique qu’après un POST le cache associé à
 cette adresse doit être expiré (ainsi que ceux des éventuelles adresses
-dans les entêtes Location et `Content-Location` de la réponse). Cela
+dans les entêtes `Location` et `Content-Location` de la réponse). Cela
 revient plus ou moins à dire qu’une requête de type POST ne doit jamais
 être mise en cache.
 
@@ -1267,7 +1267,7 @@ envoyer vos formulaires quand le résultat peut être mis en cache (par
 exemple pour un moteur de recherche). À l’inverse utilisez une requête 
 de type POST quand cela change le contenu du serveur (par exemple 
 l’envoi d’un nouveau commentaire) afin d’empêcher le cache. 
-L’utilisation de l’entête Location peut aussi expirer le cache de la 
+L’utilisation de l’entête `Location` peut aussi expirer le cache de la 
 ressource associée (par exemple la page qui contient les commentaires 
 en question).
 
@@ -1329,7 +1329,7 @@ l’appel à `session_start()`.
 
 **Recommandation** : vérifiez l’entête `Cache-Control` de vos pages
 privées et de vos pages publiques si vous utilisez un système de session
-dans votre applicatif serveur, et corrigez les si nécessaire.
+dans votre applicatif serveur, et corrigez-les si nécessaire.
 
 
 Dans les navigateurs
@@ -1392,7 +1392,7 @@ de la mémoire disponible mais il ne s'agit que de mémoire temporaire,
 pas de disque. Ce cache est perdu dès que Safari est déchargé de 
 la mémoire. Une partie de ce cache peut aussi être supprimée si 
 un autre processus réclame de la mémoire. Les objets effacés 
-du cache à ce moment là ne seront pas forcément les plus anciens. 
+du cache à ce moment-là ne seront pas forcément les plus anciens. 
 
 Les navigateurs sur tablette sont un peu plus souples puisqu'ils 
 acceptent de 20 Mo (Xoom sous Android 3.0, iPad 1) à 50 Mo (iPad 
@@ -1407,7 +1407,7 @@ les 4 Mo du cache Android.
 cache se remplira très rapidement et ne sera finalement utilisable 
 que pour la session de navigation en cours. 
 
-Certaines anciennes versions iPhones ne pouvaient toutefois 
+Certaines anciennes versions d'iPhones ne pouvaient toutefois 
 pas stocker en cache des composants de plus de 25 Ko, pour un total 
 de 500 Ko. 
 
@@ -1475,7 +1475,7 @@ Pour Microsoft Internet Explorer, vous pouvez vider le cache
 en cliquant sur le bouton « Effacer... » de la section « historique 
 de navigation » dans l'onglet « général » des options Internet. 
 
-Dans les paramètres, assurez vous que la configuration reste 
+Dans les paramètres, assurez-vous que la configuration reste 
 sur la valeur par défaut, une vérification automatique. C'est 
 aussi là que vous pourrez ouvrir le répertoire qui contient tous 
 les objets mis en cache. 

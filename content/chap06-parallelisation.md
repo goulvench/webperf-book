@@ -243,7 +243,7 @@ domaines.
 nouvelle connexion est prohibitif : n'ajoutez pas un domaine 
 tant que vous avez moins de 8 à 10 requêtes par connexion. Si vous 
 avez des visiteurs avec des navigateurs récents, cela veut dire 
-que vous pourrez souvent rester avec un voir deux domaines. 
+que vous pourrez souvent rester avec un voire deux domaines. 
 
 **Recommandation** : Sur un site standard, privilégiez la répartition 
 de vos composants sur deux à trois domaines. 
@@ -462,7 +462,7 @@ négatif.
 Les scripts externes (dans des fichiers séparés) sont par nature 
 lents. Dans le meilleur des cas, sur un site grand public, c'est 
 de 50 millisecondes grand minimum pour un petit script avec une 
-faible latence à plus d'une seconde pour un gros jquery monolithique. 
+faible latence à plus d'une seconde pour un gros jQuery monolithique. 
 
 Pendant ce temps, Opera et Internet Explorer 7 bloquent toute 
 activité. Pour ces navigateurs, un script qui met une seconde 
@@ -494,7 +494,7 @@ chargement de la page, mais uniquement de faire arriver à l'écran
 le plus important le plus tôt possible : prioriser. En fait il 
 se peut même que le chargement complet de la page soit légèrement 
 plus long, mais nous considérons quand même cela comme un bénéfice 
-si la page affichée à l'utilisateur est exploitable entre temps. 
+si la page affichée à l'utilisateur est exploitable entre-temps. 
 C'est tout l'objectif de déporter le JavaScript en fin de page. 
 
 **Recommandation** : Placez les codes JavaScripts externes 
@@ -599,7 +599,7 @@ images) pendant ce temps.
 
 Quitte à attendre, offrez à vos utilisateurs le maximum, qu'ils 
 puissent au moins avoir accès à une page visuellement propre 
-et complète avec le reste des contenus et de la navigation. Son 
+et complète avec le reste des contenus et de la navigation. Leur 
 attente n'en sera que meilleure. 
 
 ### Prévoir l'arrivée des scripts : éviter les pages qui bougent
@@ -777,7 +777,7 @@ passer par une ressource externe. On pourra ainsi éviter de télécharger une
 ressource externe supplémentaire.
 
 L'attribut `seamless`, lorsqu'il est appliqué à une iframe, permet à son contenu
-de ce comporter comme un élément normal du DOM plutôt que comme un nouveau
+de se comporter comme un élément normal du DOM plutôt que comme un nouveau
 document. Le contenu de l'iframe hérite ainsi des styles provenant du document
 parent et, plus important, le JavaScript provenant de la régie publicitaire
 continuera de détecter le bon domaine.

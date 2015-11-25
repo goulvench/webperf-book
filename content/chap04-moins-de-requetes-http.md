@@ -43,13 +43,13 @@ eux-même.
 
 Sur les sites modernes, avec beaucoup de composants, le nombre 
 de requêtes HTTP devient un problème en soi. C'est d'autant plus 
-frustrant que pendant ce temps là le navigateur ne fait rien, 
+frustrant que pendant ce temps-là le navigateur ne fait rien, 
 il attend. 
 
 ![Enchaînement de deux requêtes HTTP sur le réseau](img/chap04-enchainement-de-deux-requetes-http-sur-le-reseau.png)
 
 Pour palier ce problème de latence les navigateurs téléchargent 
-plusieurs composants en simultanés. Ainsi sur Microsoft Internet 
+plusieurs composants en simultané. Ainsi sur Microsoft Internet 
 Explorer 6 qui a deux files de téléchargements simultanées, 
 200 composants avec un aller-retour à 100 ms coûterait 10 
 secondes. Sur Firefox 3.5 (6 téléchargements simultanés), on 
@@ -71,7 +71,7 @@ est d'abord de fusionner des contenus ensemble.
 
 Toujours pour l'exemple de www.lemonde.fr nous avons 40 fichiers 
 JavaScript individuels dont 27 sur le domaine principal. Sur 
-Microsoft Internet Explorer 6 avec une mauvaise connexion avec 
+Microsoft Internet Explorer 6 avec une mauvaise connexion à 
 100 ms de latence, cela peut faire 1,5 secondes de perdues inutilement 
 rien qu'avec ces 27 requêtes HTTP (une demie seconde avec Firefox 
 3.5). 
@@ -90,7 +90,7 @@ se tourner les pouces pendant 30 à 100 ms (la latence réseau, le
 temps d'un aller-retour). Considérant que Microsoft Internet 
 Explorer 7 utilises deux fils de téléchargement simultanés, 
 c'est encore 6 fois 30 à 100 ms (donc de 200 ms à 600 ms au total) qui 
-sont gagnés. 
+sont gagnées. 
 
 Le gain est d'autant plus important qu'en réalité les fichiers 
 JavaScript posent des problèmes aux navigateurs. C'est aussi 
@@ -108,7 +108,7 @@ qui sera à charger par le navigateur.
 
 **Recommandation** : Regroupez les feuilles de style apparaissant 
 sur la même page en un seul fichier. Faites de même avec les codes 
-JavaScript. Si possible, pensez à utiliser les attributs "defer" et "async" sur la balise script, 
+JavaScript. Si possible, pensez à utiliser les attributs `defer` et `async` sur la balise `<script>`, 
 si votre code est conçu pour être fonctionnel en asynchrone.
 Limitez-vous si possible à un seul composant de 
 chaque type sur une page. 
@@ -184,7 +184,7 @@ pour le serveur web Apache. Une page avec une adresse qui finit
 par un double point d'interrogation et une liste de fichiers 
 séparés par des virgules chargera en une seule requête le contenu 
 des différents fichiers en renvoyant la date de modification 
-du fichier le plus récent. Un module similaire existe sur lighttpd. 
+du fichier le plus récent. Un module similaire existe sur Lighttpd. 
 
 Yahoo! utilise lui aussi un tel mécanisme qu'ils appellent « 
 combo handler » pour ses serveurs de ressources statiques. L'adresse 
@@ -735,7 +735,7 @@ qui sont techniquement « ligaturés », mais qui présentent un tout autre as
 Par exemple, le mot « cloud » se retrouve remplacé par un dessin de nuage.
 
 Si nous devions adapter un tel dispositif pour donner des coordonnées de contact, et si nous
-laissons le texte des icones dans le code HTML, nous pourrions avoir :
+laissons le texte des icônes dans le code HTML, nous pourrions avoir :
 
 ```
  <address>
@@ -797,10 +797,10 @@ l'externalisation des contenus pour profiter des caches HTTP.
 
 La question se pose aussi pour les images et les autres types de 
 contenu. En effet, toute personne qui télécharge une image de 
-fond déclarée en CSS devra avoir charger la feuille de style auparavant. 
+fond déclarée en CSS devra avoir chargé la feuille de style auparavant. 
 Inversement, il existe une série d'images qui seront quasiment 
 toujours chargés par les visiteurs qui chargeront la feuille 
-de style. Ces images là pourraient avoir un avantage à être intégrées 
+de style. Ces images-là pourraient avoir un avantage à être intégrées 
 directement dans la feuille de style et à être téléchargées en 
 un lot unique, ensemble. C'est ce qui est discuté ci-après. 
 
@@ -855,7 +855,7 @@ data:[<mediatype>][;base64],<data>
 La première partie est fixe, il s'agit du protocole utilisé, 
 `data:`. Vient ensuite le type du contenu, par exemple `image/png` 
 pour une image ou `text/css` pour une feuille de style. Ce type 
-de contenu peut embarquer un paramètre spécifiant codage caractère 
+de contenu peut embarquer un paramètre spécifiant le codage caractère 
 dans le type mime, par exemple `text/html;charset=utf-8`. 
 Enfin on insère la donnée binaire ou texte elle-même, après une 
 virgule. Par défaut, ce contenu est codé comme un lien, avec %xx où xx représente 
@@ -883,7 +883,7 @@ Cette fonctionnalité peut avoir un intérêt quand on souhaite
 avoir un seul fichier, sans composant externe (par exemple la 
 diffusion d'un CV au format HTML). Nous l'utilisons ici pour 
 son effet de bord : aucune requête HTTP n'est alors générée sur 
-le réseau, l'image et son fichier source sont envoyées groupés. 
+le réseau, l'image et son fichier source sont envoyés groupés. 
 
 Si dans le cas du fichier HTML l'effet est peu utilisé, c'est très 
 intéressant dans le cadre des feuilles de style. On sait que celui 
@@ -980,8 +980,8 @@ L'interne des fichiers est exactement le même que l'enveloppe
 d'un e-mail. Le contenu principal prend un type mime spécifique 
 (`multipart/related`, qui est différent du type mime avec lequel 
 est envoyé le fichier mhtml lui-même) et on utilise des séparateurs 
-(« boundary ») pour diviser le message en plusieurs sous contenus. 
-Chaque sous contenu a ensuite ses propres entêtes avec son type 
+(« boundary ») pour diviser le message en plusieurs sous-contenus. 
+Chaque sous-contenu a ensuite ses propres entêtes avec son type 
 mime. 
 
 Exemple de fichier MHTML (notez bien la présence d'entêtes et 
@@ -1123,7 +1123,7 @@ la seconde page (vu que le cache ne sera pas initialisé). Plus
 la page est spéciale, et uniquement utilisée comme page d'arrivée 
 (et pas dans la suite de la navigation), plus la décision d'embarquer 
 JavaScript, CSS, voire images et autres composants en ligne 
-à du sens. 
+a du sens. 
 
 Pour les téléchargements par lot via data:, mhtml ou jar les critères 
 sont un peu plus souples. Il est en effet possible de profiter 
@@ -1142,7 +1142,7 @@ qui doivent alors guider le choix :
   parallèle des navigateurs) ; 
 
 * ne pas charger un composant en lot avec un contenu principal 
-  (CSS ou js) si ce composant est aussi utilisé ailleurs sans 
+  (CSS ou JavaScript) si ce composant est aussi utilisé ailleurs sans 
   ce contenu principal (sinon on va de toutes façons devoir le 
   recharger indépendamment et on l'aura téléchargé deux fois 
   au final). 
@@ -1151,7 +1151,7 @@ qui doivent alors guider le choix :
 
 Globalement, si deux contenus sont toujours utilisés ensemble, 
 les charger en un seul lot a presque toujours du sens. C'est par 
-exemple le cas pour des images de fonds ou des icônes qui sont utilisées 
+exemple le cas pour des images de fond ou des icônes qui sont utilisées 
 sur presque toutes les pages et référencées par la feuille de 
 style. Dans ce cas les embarquer directement dans la feuille 
 de style à l'aide de liens en data: ou mhtml est une bonne idée. 
@@ -1279,7 +1279,7 @@ rarement une bonne idée.
 la page HTML. Si vous devez proposer plusieurs styles, reposez-vous 
 sur un mécanisme à base de JavaScript ou via un fonctionnement 
 applicatif côté serveur (le serveur se chargera d'envoyer la 
-feuille de style adaptée et seulement celle là). 
+feuille de style adaptée et seulement celle-là). 
 
 ### Bug CSS Android
 
@@ -1419,7 +1419,7 @@ de conscience avant de lire ce chapitre.
 
 Les questions de performance sont toujours des compromis et 
 une obligation de moyens. Vous pouvez faire mieux, mais si vous 
-avez amélioré la situation sur ce point là pour 50 % des visiteurs 
+avez amélioré la situation sur ce point-là pour 50 % des visiteurs 
 c'est déjà pas mal non ? Les autres améliorations s'adresseront, 
 elles, à tout le monde. Certaines même s'adresseront uniquement 
 à Microsoft Internet Explorer, et vous aurez rétabli la balance 
@@ -1448,13 +1448,13 @@ en parallèle de l'option CSS 3.
 
 Pour obtenir un bloc aux coins arrondis on utilise la balise VML 
 `<roundrect>`. L'attribut `arcsize` permet de définir la profondeur 
-de l'arrondi et l'attribut fillcolor la couleur de fond (mais 
+de l'arrondi et l'attribut `fillcolor` la couleur de fond (mais 
 des syntaxes existent pour mettre des images de fond ou des bordures 
 et pas uniquement des couleurs pleines). 
 
 Dans l'exemple suivant on commence par déclarer l'espace de 
 nom VML (le préfixe utilisé par les balises VML) avant d'utiliser 
-`<roundrect>` lui même. Ceux qui ont l'habitude d'utiliser 
+`<roundrect>` lui-même. Ceux qui ont l'habitude d'utiliser 
 XML doivent faire attention, la syntaxe pour déclarer l'espace 
 de nom n'est pas une faute de frappe, y compris le préfixe « `xml:` 
 » qui n'est lui-même pas déclaré (si cette phrase d'avertissement 
@@ -1610,7 +1610,7 @@ background-image: -moz-linear-gradient(90deg, white, red 70%, black);
 ~~~~~~~
 
 Pour un dégradé radial on utilise `radial-gradient` avec une 
-position de départ et/ou un angle, la forme (`elipse` ou `circle`) 
+position de départ et/ou un angle, la forme (`ellipse` ou `circle`) 
 avec éventuellement la taille (`closest-side`, `closest-corner`, 
 `farthest-side`, `farthest-corner`, `cover` ou `contain`), 
 puis une suite de mentions de couleurs (à chaque fois une couleur 
@@ -1715,7 +1715,7 @@ une impression négative sur la seconde mais le visiteur ne ressentira
 probablement pas de manque avec cette alternative. 
 
 **Recommandation** : Quand cela est possible, remplacez les 
-images de dégradés par des règles CSS 3, ou simulez les avec un 
+images de dégradés par des règles CSS 3, ou simulez-les avec un 
 jeu de deux couleurs. 
 
 ### Ombres portées
@@ -1747,7 +1747,7 @@ Elles prennent quatre valeurs :
 ![Un bloc avec une ombre en bas à droite](img/chap04-un-bloc-avec-une-ombre-en-bas-a-droite.png)
 
 Afin de s'assurer d'un support sur Safari (au moins jusqu'à la 
-version 6 incluse) , Iphone (au moins jusqu'à la version 4.2 incluse) 
+version 6 incluse), Iphone (au moins jusqu'à la version 4.2 incluse) 
 et Android (2.3 incluse), il faudra ajouter une seconde directive 
 préfixée par `-webkit-` : `-webkit-text-shadow`. 
 
@@ -1757,7 +1757,7 @@ ombres portées réalisées avec des images par des règles CSS 3.
 Éviter les requêtes HTTP non souhaitées
 ---------------------------------------
 
-Au delà de la réduction du volume de requêtes par regroupement 
+Au-delà de la réduction du volume de requêtes par regroupement 
 ou par remplacement, de nombreuses requêtes HTTP sont présentes 
 dans les pages par erreur. Ce sont ces requêtes qu'il nous reste 
 à éliminer pour clôturer ce chapitre. 
@@ -1774,7 +1774,7 @@ qu'un même composant est chargé plusieurs fois. Ce peut être
 simplement deux balises <script> utilisant la même adresse 
 ou un même composant chargé via des adresses proches (une qui 
 contient un paramètre et l'autre non), par deux serveurs distincts 
-(le chargement de jquery une fois par Google et une fois en local 
+(le chargement de jQuery une fois par Google et une fois en local 
 sur le site), ou dans des versions proches. 
 
 Ces duplications imposent au navigateur de charger plusieurs fois le composant. Quand il s'agit de bibliothèques JavaScript de près de 100 Ko l'impact sur les performances est important. Pour traquer ces cas regardez la liste des ressources CSS et JavaScript téléchargées et traquez des noms similaires.
@@ -1822,7 +1822,7 @@ window.setTimeout( function() { document.location = "…" ; }, 1000) ;
 ~~~~~~~
 
 **Recommandation** : Éliminez les entêtes « refresh » présente 
-dans les entêtes HTTP ou dans les balises <meta>. Remplacez les 
+dans les entêtes HTTP ou dans les balises <meta>. Remplacez-les 
 par des redirections HTTP ou des compteurs JavaScript. 
 
 ### URL vides
@@ -1893,13 +1893,13 @@ et provoquent des erreurs 404.
 
 Malheureusement ces références cassées ne se voient pas lors 
 du test ou de la visite de la page si on ne fait pas attention. Seules 
-les performances s'en ressortent puisqu'il faut télécharger 
+les performances s'en ressentent puisqu'il faut télécharger 
 la page d'erreur en lieu et place du composant initial, inutilement. 
 Parfois ces pages d'erreur dépassent 100 Ko. 
 
 **Recommandation** : Vérifiez la présence de références vers 
 des composants ayant changé d'adresse ou ayant été supprimés 
-(ou liés avec la mauvaise adresse) et corrigez les. 
+(ou liés avec la mauvaise adresse) et corrigez-les. 
 
 Vous pouvez vérifier la présence ou l'absence de liens cassés 
 avec webpagetest.org ou Firebug. Les pages d'erreur 404 apparaitront 

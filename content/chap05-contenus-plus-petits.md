@@ -241,7 +241,7 @@ mais il ne permet pas le cache des contenus compressés.
 * [http://redmine.lighttpd.net/wiki/1/Docs:ModCompress](http://redmine.lighttpd.net/wiki/1/Docs:ModCompress) 
 
 La liste des contenus à compresser est fixée par la directive 
-`compress.filtype` : 
+`compress.filetype` : 
 
 ~~~~~~~ {.oneline .lighttpd .partial}
 compress.filetype  = ("text/plain", "text/html")
@@ -303,7 +303,7 @@ par défaut des entêtes de cache (paramètres metabase `HcExpiresHeader`,
 `HcCacheControlHeader`, et `HcSendCacheHeaders`) sont réglés 
 pour désactiver tout cache par les proxy et les navigateurs. 
 
-Pour faciliter, il existe des modules tierces qui permettent 
+Pour faciliter, il existe des modules tiers qui permettent 
 de gérer tout cela plus simplement. C'est par exemple le cas de 
 IIS Accelerator : 
 
@@ -339,7 +339,7 @@ Lorsqu'il reçoit un requête, Varnish vérifie si le client supporte gzip, d'ap
 Si le client la supporte, il va forcer la valeur de Accept-Encoding à "gzip".
 
 Lorsque Varnish va demander le contenu au backend, il forcera Accept-Encoding à "gzip", de sorte que si le backend renvoi du contenu gzipé, Varnish le gardera en cache sous cette forme compressé.
-Si le backend renvoi du texte non compressé, Varnish le conservera non compressé.
+Si le backend renvoie du texte non compressé, Varnish le conservera non compressé.
 
 Pour économiser de la place dans le cache, il est possible de contraindre Varnish à compresser la réponse du backend :
 
@@ -398,7 +398,7 @@ C'est alors à un boîtier qui se branche entre votre serveur web
 et Internet qu'est dévolue la tâche de réaliser la compression. 
 
 Il existe de nombreux boîtiers qui réalisent cette opération, 
-et bien d'autres en même temps (gestion de la sécurité ssl, recompression 
+et bien d'autres en même temps (gestion de la sécurité SSL, recompression 
 des images, proxy cache, etc.). On peut par exemple citer ActivNetworks 
 en France. 
 
@@ -447,7 +447,7 @@ Côté web on peut identifier les types mimes suivants :
 
 On peut normalement sans trop de risques ajouter tous les types 
 text/* et probablement tous les types application/*+xml. On 
-devrait aussi pouvoir compresser efficacement les images svg 
+devrait aussi pouvoir compresser efficacement les images SVG 
 (image/svg+xml) mais ces dernières peuvent déjà être compressées 
 (fichiers en .svgz) sans que cela ne se voit sur le type mime. 
 
@@ -584,7 +584,7 @@ Il existe quatre formats d'images courants sur le web : JPEG,
 SVG, GIF et PNG. 
 
 Le jpeg est un format adapté pour les photos, avec des millions 
-de couleurs différentes et des zones où on a toute une variation 
+de couleurs différentes et des zones où on a tout une variation 
 autour d'un même jeu de couleurs (pensez aux couleurs chair d'un 
 visage). Lors de l'enregistrement d'un fichier jpeg le logiciel 
 va supprimer certains détails peu importants dans le cadre d'une 
@@ -610,7 +610,7 @@ Les formats gif et png sont deux formats concurrents ayant le
 même but. À l'inverse de jpeg le format ne dégrade en rien l'image, 
 qui reste fidèle au pixel près à celle d'origine. En conséquence 
 ils sont forcément bien plus volumineux que les jpeg pour représenter 
-de simples photos. Leur domaine de prédilection ce sont les logos, 
+de simples photos. Leur domaine de prédilection sont les logos, 
 les textes et les petits éléments d'interface graphique où il 
 est important que les couleurs ou les délimitations soient fidèles. 
 Ils arrivent aussi très bien à compresser les dégradés. 
@@ -715,7 +715,7 @@ qui subiraient une perte de qualité.
 Recompresser un png est l'histoire d'une ligne de commande. 
 De nombreux outils existent pour automatiser cette tâche. Les 
 plus connus sont pngcrush et optipng. Il existe aussi un service 
-web, punnypng, qui permet d'optimiser ses images via une API. 
+web, punypng, qui permet d'optimiser ses images via une API. 
 Ce dernier offre plus que la simple recompression mais impose 
 d'être dépendant d'un service externe. 
 
@@ -757,11 +757,11 @@ image, avec un cumul à la fin.
 
 * [http://www.webpagetest.org/](http://www.webpagetest.org/) 
 
-Il peut être intéressant de noter ou Yslow, Page Speed, web page 
-test, et même punnypng utilisent tous pngcrush ou optipng en 
+Il peut être intéressant de noter que Yslow, Page Speed, web page 
+test, et même punypng utilisent tous pngcrush ou optipng en 
 interne. Seules les options et les traitements annexes changent. 
 Les gains sont parfois différents mais généralement du même 
-ordre de grandeur. Seul punnypng va parfois un peu plus loin suite 
+ordre de grandeur. Seul punypng va parfois un peu plus loin suite 
 aux différentes actions qu'il réalise en plus. 
 
 #### Recompresser les svg
@@ -769,7 +769,7 @@ aux différentes actions qu'il réalise en plus.
 Les images svg se compressent et décompressent avec n'importe 
 quel outil de gzip. Si elles ne sont pas compressées il suffit 
 de les faire passer par gzip et d'en changer l'extension pour 
-.svgz. Si elles sont déjà compressées vous pouver les décompresser 
+.svgz. Si elles sont déjà compressées vous pouvez les décompresser 
 pour relancer l'opération avec des paramètres plus agressifs. 
 
 Si vous avez suivi les recommandations de compression HTTP précédentes, 
@@ -902,7 +902,7 @@ une astuce similaire : Pour faire un bouton avec un dégradé, il
 suffit en fait de mettre une couleur claire sur la moitié haute 
 et une plus foncée sur la moitié basse, et pas un réel dégradé. 
 C'est ce que font beaucoup de sites web, et personne ne le remarque. 
-Sachez-donc faire des compromis de qualité, ce n'est pas toujours 
+Sachez donc faire des compromis de qualité, ce n'est pas toujours 
 négatif et cela peut vous apporter de réels gains de performance 
 quand vous additionnez ceux de toutes les images. 
 
@@ -916,7 +916,7 @@ proches. Cette automatisation n'est pas toujours souhaitable.
 Peut-être que le dégradé de vert est important, quand bien même 
 les couleurs sont proches, et que les bleus peuvent être fusionnés 
 quand bien même ils sont très différents. Les graphistes expérimentés 
-choisissent eux même individuellement chaque couleur de la 
+choisissent eux-mêmes individuellement chaque couleur de la 
 palette quand ils en ont le temps, leur permettant de faire ces 
 choix cruciaux. 
 
@@ -950,7 +950,7 @@ vos jpeg, et si baisser en qualité est acceptable ou pas. Le mieux
 reste de mener cette vérification et les discussions qui suivent 
 directement avec vos graphistes afin que l'image soit crée dès 
 le départ avec le bon niveau de qualité plutôt que de l'ouvrir 
-pour la recompresser. Ce dernier procédé qui induirait forcément 
+pour la recompresser. Ce dernier procédé induirait forcément 
 une perte de qualité supplémentaire inutile. 
 
 Lors de la discussion autour de la qualité, comme précédemment, 
@@ -1009,7 +1009,7 @@ quelques points à vérifier pour diminuer le poids de vos images :
 
 Tout d'abord, et même si la recommandation peut paraître superflue, 
 veillez à ne pas diffuser une grande image qui sera ensuite réduite 
-dans le navigateur à l'aide des propriétés HTML `width` et height 
+dans le navigateur à l'aide des propriétés HTML `width` et `height` 
 ou de leurs équivalents CSS. 
 
 Contrairement aux attentes ce cas se retrouve dans de nombreux 
@@ -1032,7 +1032,7 @@ dans le navigateur.
 #### Pixels transparents
 
 Le second point intéressant vient des travaux autour de l'outil 
-PunnyPNG. Il s'agit de s'assurer que dans une image avec de la 
+PunyPNG. Il s'agit de s'assurer que dans une image avec de la 
 transparence, les pixels totalement transparents sont dans 
 une couleur qui favorise une compression optimale. 
 
@@ -1045,12 +1045,12 @@ ils diminuent les possibilités de compression inutilement.
 Le plus simple est souvent de leur affecter une couleur unie, 
 toujours la même. 
 
-L'outil PunnyPNG fait cette opération, mais peut être réalisée 
+L'outil PunyPNG fait cette opération, mais peut être réalisée 
 à partir de n'importe quel éditeur d'images évolué. 
 
-* PunnyPNG : [http://www.punypng.com/](http://www.punypng.com/) 
+* PunyPNG : [http://www.punypng.com/](http://www.punypng.com/) 
 
-**Recommandation** : Utiliser PunnyPNG ou un outil équivalent 
+**Recommandation** : Utiliser PunyPNG ou un outil équivalent 
 pour s'assurer que les pixels transparents dans les PNG avec 
 une couche d'opacité variable sont optimisés pour une meilleure 
 compression. 
@@ -1155,7 +1155,7 @@ génériques et n'imposent pas d'utiliser la bibliothèque correspondante.
 Ces outils permettent d'optimiser un fichier JavaScript en 
 retirant les espaces blancs inutiles, les commentaires, et 
 en ajoutant diverses optimisations. YUI fait par exemple des 
-alias pour les noms de variable longs et fréquemment utilisés 
+alias pour que les noms de variable longs et fréquemment utilisés 
 soient remplacés dans le code par des noms plus courts. 
 
 Closure Compiler est parfois vu comme celui donnant les meilleurs 

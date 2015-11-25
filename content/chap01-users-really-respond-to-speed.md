@@ -154,10 +154,10 @@ proportionnellement au temps de chargement, sur l'ensemble des valeurs de 0 à 5
 
   [^5]: Illustration originale dans la conférence [« Varnish – A State of the Art High-Performance Reverse Proxy »](http://www.oscon.com/oscon2009/public/schedule/detail/10433) d'Artur Bergman donnée à l'OSCON le 23 juillet 2009
 
-Votre commerce et votre marque en pâtissent, l’étude Akamaï
+Votre commerce et votre marque en pâtissent, l’étude Akamai
 ----------------------------------------------------------------------------
 
-Dans une étude de 2006, Akamaï et JupiterResearch ont mesuré l’impact
+Dans une étude de 2006, Akamai et JupiterResearch ont mesuré l’impact
 des performances auprès de 1 000 marchands en ligne. Ils ont trouvé que
 la lenteur d’un site marchand est le second motif principal d’insatisfaction,
 juste après les prix trop élevés.
@@ -167,7 +167,7 @@ le site, et les trois quarts ne reviendront probablement plus
 par la suite. Le palier d'insatisfaction se situait à 4 secondes.
 Au-delà, les abandons deviennent très importants.
 
-Akamaï a relancé une étude similaire en 2009 avec Forrester Consulting.
+Akamai a relancé une étude similaire en 2009 avec Forrester Consulting.
 Là c'est à partir de 3 secondes pour le chargement de la page qu'on
 identifie 57 % d'abandon parmi les acheteurs, et 80 % qui ne reviendront
 plus s'ils ont eu un résultat inapproprié. Ces paliers de 3 ou
@@ -299,7 +299,7 @@ chargement est donc indéniablement perceptible.
 
 Enfin, sur Bing, un ralentissement influe sur le visiteur dès 200 ms. À
 partir de 500 ms on voit déjà une baisse de plus de 1,2 % du revenu par
-visiteur[^11]. Avec une ou deux secondes de ralentissement ce sont
+visiteur[^11]. Avec une ou deux secondes de ralentissement se sont
 respectivement 2,8 % et 4,3 % de perte de revenu par utilisateur. Ces
 effets négatifs sont accompagnés de pertes de satisfaction utilisateur,
 de plus faibles taux de clics, et d'une diminution de la propension des
@@ -316,9 +316,9 @@ visiteurs à affiner et approfondir leur recherche.
 ![Évolution des performances suivant le ralentissement sur Bing](img/chap01-evolution-des-performances-suivant-le-ralentissement-sur-bing.png)
 
 La baisse de revenus publicitaires est d'ailleurs corrélée par une étude
-de Jackob Nielsen en juin 2010 : après un grand délai d'attente,
+de Jakob Nielsen en juin 2010 : après un grand délai d'attente,
 l'utilisateur se concentre sur le contenu et est bien moins à même de
-s'arrêter sur les contenus promotionnels. Jackob évoque le passage de
+s'arrêter sur les contenus promotionnels. Jakob évoque le passage de
 20 % d'attention au promotionnel pour 1 seconde d'attente à 1 %
 d'attention au promotionnel seulement après 8 secondes d'attente.
 
@@ -578,14 +578,14 @@ entreprises avec des applications lentes ne grossissent pas aussi vite.
 
 -   De bonnes performances amélioreront votre visibilité dans les
     moteurs de recherche et diminueront votre coût de publicité en ligne
-    sur Google
+    sur Google ;
 -   Quelques dixièmes de secondes de ralentissement peuvent avoir un
-    impact négatif concret et important sur votre site
+    impact négatif concret et important sur votre site ;
 -   Il vaut mieux se concentrer sur la façade (réseau, navigateur) que
     sur la génération des pages (programmation Java, PHP, base de
-    données)
+    données) ;
 -   Améliorer la vitesse de votre site fera immédiatement progresser
     votre taux de rebond, la fidélité de vos visiteurs, le temps passé
-    sur votre site, et la conversion finale
+    sur votre site, et la conversion finale ;
 -   L'investissement réalisé est généralement vite amorti, les premiers
-    jours de travail sont rentabilisés en moins d'un mois
+    jours de travail sont rentabilisés en moins d'un mois.

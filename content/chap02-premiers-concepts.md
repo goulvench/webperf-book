@@ -117,17 +117,17 @@ vu pour une requête : une suite d’en-têtes avec clef - valeur, une
 ligne vide, et le corps de la réponse. Le corps de la réponse, c'est 
 ce que le serveur a fait correspondre à la ressource demandée,
 par exemple un fichier HTML, du code JavaScript, ou du contenu binaire de 
-du fichier image. 
+fichier image. 
 
 ### Les outils
 
 Pour explorer les requêtes et les réponses HTTP, les navigateurs web
-actuels ont maintenant des outils directement intégrés: Chrome et Firefox
+actuels ont maintenant des outils directement intégrés : Chrome et Firefox
 ont chacun leurs *Developer Tools*.
 
 Pour beaucoup d'usages ces outils sont suffisants, mais pour aller plus loin,
 on pourra télécharger l’extension Firefox nommée HTTPfox, ou encore 
-l’extension LiveHttpHeaders. L’extension Firebug,ou le site [Web Page Test](http://www.webpagetest.org/)
+l’extension LiveHttpHeaders. L’extension Firebug, ou le site [Web Page Test](http://www.webpagetest.org/)
 peuvent aussi vous montrer le détail 
 de ce qui est envoyé et reçu par les navigateurs. L’extension 
 Firefox nommée TamperData permet même de modifier dynamiquement 
@@ -206,7 +206,7 @@ HTTP ».
 
 Comme on l'a déjà vu dans le chapitre d'introduction, le temps 
 de génération de la page, ce que j'ai appelé la partie « back-end 
-», est généralement inférieur à la demie-seconde (voire inférieur au dizième de seconde), 
+», est généralement inférieur à la demi-seconde (voire inférieur au dixième de seconde), 
 et au final négligeable par rapport au temps de chargement total de la page. Quand ce n'est pas le cas,
 des techniques d'optimisation existent, mais ce n'est pas le sujet de ce livre, nous n'aborderons
 donc plus ce point.
@@ -226,7 +226,7 @@ sur ces deux durées.
 
 ### Les outils
 
-Des outils comme Firebug, les outils de développements natifs des navigateurs ou WebPagetest (http://www.webpagetest.org ) vous montreront les différentes étapes d’une requêtes, pour vous permettre de constater où est 
+Des outils comme Firebug, les outils de développements natifs des navigateurs ou WebPagetest (http://www.webpagetest.org) vous montreront les différentes étapes d’une requêtes, pour vous permettre de constater où est 
 votre problème. Les navigateurs Chrome, Safari et Firefox possèdent nativement des outils équivalents à Firebug. Plusieurs proxy de développement comme HttpWatch peuvent aussi exporter des données similaires. 
 
 Le graphique alors représenté est appelé vue en cascade. Il est 
@@ -244,7 +244,7 @@ si une requête bloque les suivantes par exemple.
 
 Sur Internet le serveur ne connaît pas la bande passante disponible 
 sur le client, ou sur les éléments réseaux entre le serveur et 
-le client. Il est donc impossible de savoir à priori à quelle vitesse 
+le client. Il est donc impossible de savoir a priori à quelle vitesse 
 envoyer les données. Comme les équipements réseaux ne peuvent 
 se permettre de stocker temporairement les données de tout le 
 monde, si des données sont envoyées plus vite qu'on ne peut les 
@@ -392,7 +392,7 @@ Dans le navigateur
 
 Si le réseau occupe une place prépondérante dans le temps de d'affichage d'une page, 
 ce n'est pas le seul domaine qui entre en jeu. 
-A titre d'exemple, Microsoft identifie onze sous-système pour son navigateur Internet 
+A titre d'exemple, Microsoft identifie onze sous-systèmes pour son navigateur Internet 
 Explorer :
 
 * Réseau : Ce sous-système est responsable de toute la communication 
@@ -410,7 +410,7 @@ Explorer :
 
 * Collections : Ce sous-système est responsable du stockage 
   et de l'accès à toutes les méta-données, pour la page (dans 
-  les entêtes HTML par exemple) ou pour les éléments HTML (attributs) 
+  les entêtes HTML par exemple) ou pour les éléments HTML (attributs).
 
 * JavaScript : C'est le sous-système chargé d'exécuter le code 
   JavaScript. 
@@ -439,7 +439,7 @@ Explorer :
   l'écran ce que l'utilisateur verra. C'est aussi ce sous-système 
   qui s'occupe éventuellement de l'accélération graphique. 
 
-La construction de la page en mémoire et l'affichage dans le navigateur passe donc
+La construction de la page en mémoire et l'affichage dans le navigateur passent donc
 par de nombreuses étapes, susceptibles de générer des ralentissements ou blocages
 qu'il faudra donc éviter.
 
@@ -449,7 +449,7 @@ de 30 % pour le rendu, 20 % pour JavaScript, 15 % pour l'agencement,
 et 12 % pour le formatage. Pour un site web plus classique le rendu, 
 l'agencement et le formatage ont bien moins d'importance car 
 ils interviennent une seule fois (le JavaScript ne provoque 
-pas de changements fréquents dans la page).(notabene : il faudrait trouver un exemple plus moderne)
+pas de changements fréquents dans la page). (notabene : il faudrait trouver un exemple plus moderne)
 
 Cependant quelques points méritent une attention particulière.
 
@@ -628,7 +628,7 @@ du navigateur. L'adresse about:config vous permettra d'accéder
 aux options de configurations internes ; nous en utiliserons 
 plusieurs. 
 
-Profitez en pour installer au minimum les extensions Firebug, 
+Profitez-en pour installer au minimum les extensions Firebug, 
 Yslow, Google Page Speed et HTTPfox. Prenez les dernières versions, 
 n'hésitez pas à utiliser les bétas ou versions en développement. 
 Google Page Speed vous donnera un premier graphique en cascade, 
@@ -669,7 +669,7 @@ pas à y jeter un œil pour savoir comment utiliser tout ça.
 ### Mesures
 
 Il est maintenant temps de prendre vos premières mesures. Prenez 
-quelques sites exemples : le votre, mais aussi quelques uns que 
+quelques sites exemples : le votre, mais aussi quelques-uns que 
 vous visitez régulièrement. Faites un répertoire pour chaque 
 et sauvegardez le code source et les mesures. Quand vous aurez 
 exploré tout ce livre vous pourrez voir le chemin parcouru. 
@@ -707,7 +707,7 @@ vos progrès, jetez un œil à Yslow, puis éventuellement à Google
 Page Speed. Yslow n'est pas parfait, mais c'est un des meilleurs 
 guides qui existe sur le sujet et Google Page Speed comble les 
 quelques manques. Les statistiques, la mesure du temps de réponse 
-et les différentes notes (de F à A, A étant la meilleure) vous donneront 
+et les différentes notes (de A à F, A étant la meilleure) vous donneront 
 un aperçu rapide de là où vous en êtes. 
 
 ![L'écran d'évaluation Yslow](img/chap02-lecran-devaluation-yslow.png)
@@ -771,7 +771,7 @@ donc 200 ms dans notre cas. Même pour joindre New York nous avons
 dans les 12 000 km en ligne direct aller-retour, donc dans les 
 120 ms possibles. 
 
-Ce sont ces temps là que nous obtenons régulièrement depuis la 
+Ce sont ces temps-là que nous obtenons régulièrement depuis la 
 France pour joindre des serveurs américains. Toute difficulté 
 ou tout équipement réseau superflu viendrait en sus, et bien 
 entendu cela ne comprend pas le délai de réaction de votre serveur 
@@ -788,7 +788,7 @@ Il n'est pas la peine de générer toutes les combinaisons entre
 débit et latence. Malheureusement un faible débit va très souvent 
 avec une forte latence et inversement. Si on trouve parfois des 
 connexions à forte latence et haut débit (les terminaux 3G+ par 
-exemple), la bande passante restera de toute façon sous utilisée. 
+exemple), la bande passante restera de toute façon sous-utilisée. 
 Du fait du plafonnement des débits TCP, la bande passante utilisée 
 est en fait plus dépendante de la latence que de la bande passante 
 disponible. 

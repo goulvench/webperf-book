@@ -710,8 +710,8 @@ assuré : il dépend de l'ordre de fin de téléchargement, qui ne
 peut être prévu avec certitude. 
 
 ~~~~~~~ {.html .partial}
-<script src="/chemin/vers/fichier1.js" defer></script>
-<script src="/chemin/vers/fichier2.js" defer></script>
+<script src="/chemin/vers/fichier1.js" async></script>
+<script src="/chemin/vers/fichier2.js" async></script>
 <!-- rien ne garantit que le script 1 s'exécutera toujours avant le script 2 -->
 ~~~~~~~
 

@@ -592,7 +592,7 @@ photo (il est peu important que le pixel soit exactement de la
 bonne couleur, tant que le ton, la saturation et la luminance 
 sont proches). Si on utilise des réglages trop agressifs ou une 
 image autre qu'une photo (par exemple un logo avec du texte) on 
-verra très rapidement la dégradation en qualité. 
+verra très rapidement la qualité se dégrader. 
 
 Le svg est un format un peu à part. Il n'enregistre pas la couleur 
 de chaque pixel mais directement les formes (courbe, ligne, 
@@ -707,8 +707,8 @@ sans pertes, c'est à dire PNG, GIF et SVG. Sur ces formats l'images
 est exactement la même avant et après sa compression, au pixel 
 près. Recompresser l'image se fait donc sans aucun compromis 
 de qualité. On ne touchera par contre pas aux fichiers jpeg, qui 
-eux subissent une dégradation à chaque compression, et donc 
-qui subiraient une perte de qualité. 
+eux subissent une dégradation à chaque compression, et qui 
+subiraient donc une perte de qualité. 
 
 #### Recompresser les png
 
@@ -1289,7 +1289,7 @@ de façon importante les performances.
 
 Ces recommandations sont d'autant plus importantes que contrairement 
 aux autres ressources, les erreurs HTTP ne sont pas mises en cache 
-par le navigateur. La page d'erreur sera donc retéléchargée 
+par le navigateur. La page d'erreur sera donc re-téléchargée 
 à chaque accès. Si l'erreur est dans une partie générique de la 
 page HTML ou de la CSS, c'est le poids de toutes les pages vues qui 
 est ainsi gonflé artificiellement. 

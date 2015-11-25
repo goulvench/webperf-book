@@ -88,13 +88,13 @@ regroupant ces 13 fichiers en un unique gros fichier on économise
 12 requêtes. Chacune de ces requêtes impose au navigateur de 
 se tourner les pouces pendant 30 à 100 ms (la latence réseau, le 
 temps d'un aller-retour). Considérant que Microsoft Internet 
-Explorer 7 utilises deux fils de téléchargement simultanés, 
+Explorer 7 utilises deux files de téléchargement simultanés, 
 c'est encore 6 fois 30 à 100 ms (donc de 200 ms à 600 ms au total) qui 
 sont gagnées. 
 
 Le gain est d'autant plus important qu'en réalité les fichiers 
 JavaScript posent des problèmes aux navigateurs. C'est aussi 
-vrai dans une moindre mesure pour les fichiers CSS. Ces fichiers 
+vrai dans une moindre mesure pour les fichiers CSS. Les navigateurs 
 ont tendance à les charger séquentiellement sans utiliser leurs 
 possibilités de téléchargements parallèles : pendant ce temps 
 rien d'autre ne se passe dans le navigateur. Si cela arrive, 27+12 
@@ -858,7 +858,7 @@ pour une image ou `text/css` pour une feuille de style. Ce type
 de contenu peut embarquer un paramètre spécifiant le codage caractère 
 dans le type mime, par exemple `text/html;charset=utf-8`. 
 Enfin on insère la donnée binaire ou texte elle-même, après une 
-virgule. Par défaut, ce contenu est codé comme un lien, avec %xx où xx représente 
+virgule. Par défaut, ce contenu est encodé comme une URL, avec %xx où xx représente 
 la valeur de l'octet à insérer (%20 pour un espace par exemple). 
 Si le type mime contient le paramètre `base64` (les paramètres 
 sont séparés par des points virgules) alors on utilise le codage 
@@ -1413,7 +1413,7 @@ La seconde solution est d'utiliser les « hacks » CSS ou les commentaires
 conditionnels HTML pour revenir à l'ancienne méthode des coins 
 arrondis à l'aide d'images pour ces vieilles versions de Microsoft 
 Internet Explorer. Si cela vous paraît inacceptable de laisser 
-ce défaut de performance à MSIE, dites vous bien que c'est ce que 
+ce défaut de performance à Internet Explorer, dites-vous bien que c'est ce que 
 vous aviez jusqu'à maintenant, et qui ne vous posait pas de problème 
 de conscience avant de lire ce chapitre. 
 
@@ -1422,7 +1422,7 @@ une obligation de moyens. Vous pouvez faire mieux, mais si vous
 avez amélioré la situation sur ce point-là pour 50 % des visiteurs 
 c'est déjà pas mal non ? Les autres améliorations s'adresseront, 
 elles, à tout le monde. Certaines même s'adresseront uniquement 
-à Microsoft Internet Explorer, et vous aurez rétabli la balance 
+à Internet Explorer, et vous aurez rétabli la balance 
 sans rentrer dans des développements discutables. 
 
 #### SVG et VML
@@ -1435,7 +1435,7 @@ de multiples images tierces.
 Nous pouvons faire appel pour cela aux deux langages vectoriels 
 utilisés sur le web : SVG et VML. Le premier, SVG, est supporté 
 plus ou moins bien par tous les navigateurs récents mais souffre 
-lui aussi d'un manque de support de Microsoft Internet Explorer 
+lui aussi d'un manque de support de Internet Explorer 
 6 à 8 (sauf plugin tiers à installer en plus). Il n'offre donc pas 
 grand avantage par rapport à la solution en CSS 3. 
 
@@ -1443,7 +1443,7 @@ La seconde solution se base sur VML, qui est plus ou moins l'ancêtre
 de SVG tout en étant plus évolué sur de nombreux points. Ce format 
 a été abandonné vers 1998 mais reste supporté et utilisé par Microsoft, 
 entre autres dans son navigateur. Il est alors possible de l'utiliser 
-pour créer nos coins arrondis dans Microsoft Internet Explorer, 
+pour créer nos coins arrondis dans Internet Explorer, 
 en parallèle de l'option CSS 3. 
 
 Pour obtenir un bloc aux coins arrondis on utilise la balise VML 
@@ -1555,7 +1555,7 @@ engagiez sur une solution qui ne couvre pas tous les cas d'utilisation,
 qui vous ajoute des contraintes de développement, et qui a, elle 
 aussi, ses défauts de performance (htc pour l'une, JavaScript 
 pour l'autre). À vous de faire vos choix, je ne vous donne que les 
-armes, mais si vous vous tirez dans le pied à ce sujet, je dégage 
+armes, mais si vous vous tirez dans le pied à ce sujet, je décline 
 toute responsabilité. 
 
 ### Dégradés
@@ -1593,8 +1593,8 @@ La syntaxe amenée à être pérennisée est supportée par Mozilla
 la version 10 et Opera à partir de la version 11.1. Une ancienne 
 syntaxe propre à Webkit, plus complexe, est supportée par les 
 versions plus anciennes de Chrome et Safari (y compris leurs 
-versions iphone 4.2 et Android 2.3). Microsoft Internet Explorer 
-prévoit un support pour sa version 10. 
+versions iphone 4.2 et Android 2.3). Microsoft prévoit un support 
+pour Internet Explorer version 10. 
 
 La première syntaxe, pérenne, est la plus simple. Pour un dégradé 
 linéaire on utilise `linear-gradient` avec une position de 
@@ -1796,7 +1796,7 @@ Quand le navigateur tente de réactualiser une page sur requête
 de l'utilisateur, il ignore son éventuel cache et envoie des 
 entêtes HTTP pour que les proxys intermédiaires ignorent eux 
 aussi la version éventuellement en cache. Les objets liés sont 
-eux aussi retéléchargés peu importe le statut du cache. 
+eux aussi re-téléchargés peu importe le statut du cache. 
 
 Ce comportement est toutefois le même quand la réactualisation 
 est automatique avec l'entête HTTP `Refresh`. Si l'entête est 
@@ -1836,7 +1836,7 @@ alors tout simplement la page courante.
 En conséquence une image, un code JavaScript, une feuille de 
 style, ou un composant quelconque avec une adresse vide référence 
 tout simplement la page courante. Le navigateur se retrouve 
-contraint de retélécharger la page HTML avant d'échouer à l'interpréter 
+contraint de re-télécharger la page HTML avant d'échouer à l'interpréter 
 comme une image, du JavaScript ou comme une feuille de style. 
 
 Ces adresses vides impliquent donc une requête HTTP, le téléchargement 

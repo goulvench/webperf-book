@@ -333,7 +333,7 @@ de type AJAX.
 Enfin, les feuilles de style CSS téléchargées depuis un domaine 
 tiers ne pourront pas inclure de composants XBL. 
 
-Toutes ces limitations de sécurités ne sont pas forcément limitantes, 
+Toutes ces limitations de sécurités ne sont pas forcément handicapantes, 
 mais elles sont à garder à l'esprit quand vous choisirez les fichiers 
 à laisser ou pas sur le domaine principal. 
 
@@ -448,7 +448,7 @@ actuelle, tous sauf Firefox 4 et Internet Explorer 9).
 alors il faudra privilégier un positionnement tout en bas de 
 la page, juste avant la fermeture du `</body>`. Ainsi, le contenu 
 complet de la page sera accessible avant que l'effet négatif 
-du script soit perçue. 
+du script ne soit perçu. 
 
 Les cas entre lent et instantané à exécuter dépendent du contexte, 
 mais il est en général plus sûr de déléguer l'exécution à la fin 
@@ -498,7 +498,7 @@ si la page affichée à l'utilisateur est exploitable entre-temps.
 C'est tout l'objectif de déporter le JavaScript en fin de page. 
 
 **Recommandation** : Placez les codes JavaScripts externes 
-ou lents en fin de page, juste avant la fermeture de la balise `</body>`. 
+ou lents en fin de page, juste avant la balise de fermeture `</body>`. 
 
 ### Rendre la page fonctionnelle en attendant JavaScript
 
@@ -574,7 +574,7 @@ de page.
 #### Attente lors de l'affichage de la fonctionnalité
 
 La troisième option c'est afficher directement un visuel d'attente 
-à la place, à côté ou par dessus l'interface dont le JavaScript 
+à la place, à côté ou recouvrant l'interface dont le JavaScript 
 est en train de se télécharger. Ce peut être une image animée, 
 une barre de chargement, ou simplement un bouton grisé et désactivé. 
 Le visuel d'attente est ensuite supprimé quand le code JavaScript 
